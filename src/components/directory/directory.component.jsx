@@ -42,7 +42,6 @@ class Directory extends React.Component{
         sections:data
     }
     render(){
-      console.log(this.state.sections)
         return(
         <div className='directory-menu'>
             {
