@@ -10,12 +10,15 @@
   top: 110px;
   right: 80px;
   z-index: 5;
-
+  .empty-message{
+    font-size: 15px;
+    margin: 50px auto;
+  }
   .cart-items {
     height: 240px;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    overflow: auto;
   }
 
   button {

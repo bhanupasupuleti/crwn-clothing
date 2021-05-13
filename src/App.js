@@ -6,9 +6,14 @@ import {connect} from 'react-redux';
 import './App.css';
 import HomePage from './pages/homepage/homepage.component'
 import ShopPage from './pages/shop/shop.component';
+import CheckOutPage from './pages/checkout/checkout.component'
+
 import Header from './components/header/header.component';
 import SigninAndSignUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
-import {setCurrentUser} from './redux/user/user.actions'
+import {setCurrentUser} from './redux/user/user.actions';
+import {hideCart} from './redux/cart/cart.actions';
+import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from './redux/user/user.selector';
 
 class App extends React.Component {  
   unsubscribeFromAuth=null
@@ -34,11 +39,12 @@ class App extends React.Component {
   }
   render(){
     return (
-      <div className="App">
+      <div className="App" >
         <Header/>
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage}/>
+          <Route path ='/checkoutpage' component={CheckOutPage} />
           <Route 
             exact 
             path='/signin' 
@@ -53,7 +59,7 @@ class App extends React.Component {
     );
   }
 }
-const mapStatetoProps=({user})=>({
-  currentUser:user.currentUser
+const mapStatetoProps=createStructuredSelector({
+  currentUser:selectCurrentUser
 })
-export default connect(mapStatetoProps,{setCurrentUser})(App);
+export default connect(mapStatetoProps,{setCurrentUser,hideCart})(App);
