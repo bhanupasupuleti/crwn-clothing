@@ -44,7 +44,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage}/>
-          <Route path ='/checkoutpage' component={CheckOutPage} />
+          <Route path ='/checkout' component={CheckOutPage} />
           <Route 
             exact 
             path='/signin' 
@@ -63,3 +63,5 @@ const mapStatetoProps=createStructuredSelector({
   currentUser:selectCurrentUser
 })
 export default connect(mapStatetoProps,{setCurrentUser,hideCart})(App);
+
+

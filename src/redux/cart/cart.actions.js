@@ -1,8 +1,7 @@
 import CartActionTypes from './cart.types';
-import CartActionsType from './cart.types';
 
 export const toggleCartHidden=()=>({
-    type:CartActionsType.TOGGLE_CART_HIDDEN
+    type:CartActionTypes.TOGGLE_CART_HIDDEN
 })
 
 export const addItem=item=>({
@@ -11,5 +10,17 @@ export const addItem=item=>({
 })
 
 export const hideCart=()=>({
-    type:CartActionsType.HIDE_CART
+    type:CartActionTypes.HIDE_CART
+})
+
+export const clearItemFromCart=item=>(
+    {
+        type:CartActionTypes.CLEAR_ITEM_FROM_CART,
+        payload:item
+    }
+)
+
+export const removeItem=item=>({
+    type:CartActionTypes.REMOVE_ITEM,
+    payload:item
 })
